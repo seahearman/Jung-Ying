@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+\DeclareGraphicsRule{*}{eps}{*}{}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+
+    \begin{center}
+        {\bf Talk on 2011-05-06}
+    \end{center}
+ 
+    The main part of our discussion is still about how to analyze our simulated result:
+    
+    The first question is about the weighted version vs. unweighted version. The reason we add the weight in MAX IBS is that we want our method can still perform well even the true causal SNP's frequency is small. But the result is that we did well when the casual SNP frequency is small, but we did bad when the causal SNP is a common one. In another word, we lost something when we weight the MAX IBS.
+    
+    So to decide whether we need to weight the MAX IBS, we have to compare the result with the unweighted version so that we can make sure the price of save the power when the causal SNP is a rare one is worth.
+    
+    Another observation is that power of PCA and PLS have a obvious pattern (the power of our method is a little naughty, i.e. it may better than PCA and PLS in most case and suddenly drop off). So this makes us think about which are the main factors that impact the power. And also, we may expect that under the similar situation, if the causal SNP is a common one, the power of three methods should be bigger than the case the causal SNP is a rare one. But even if we just check model1, we can see that CR will have stronger power than CC.
+    
+    So here comes the second thing to do: check whether we mislabeled some SNP(I believe so) and try the best to find that whether we can find the main factors which impact the power significantly.(Try the regression may be a help!)
+    
+    Last but not least, compare model 2 and model 5, also Model 3 and Model 4, try to find the factor that impact our method most compared with other two method under similar or the exactly same SNP combination.
+    
+    So I think we can run all possible 72 combination under each model so that the sample size would be larger (both weight and non-weight version)
+\end{document}

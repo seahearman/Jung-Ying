@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[margin=2cm]{geometry}
+\DeclareGraphicsRule{*}{eps}{*}{}
+\renewcommand{\baselinestretch}{1.5}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+
+    \begin{center}
+        {\bf Talk on 2010-06-24: The EM-REML algorithm}
+    \end{center}
+    Model:
+    \begin{equation*}
+        Y_i=X_i\beta+Z_ib_i+e_i
+    \end{equation*}
+    where $b_i\sim N(0,D)$ and $e_i\sim N(0,\sigma I)$.\\
+    Define $U=H_1^TY_i=H_1^T(X_i\beta+Z_ib_i+e_i)=H_1^TX_i\beta+H_1^TZ_ib_i+H_1^Te_i$, we have,
+    \begin{align*}
+        E(U)&=E(H_1^TX_i\beta+H_1^TZ_ib_i+H_1^Te_i)=E(H_1^TX_i\beta)\\
+        (H_1^TX_i\beta)^T(H_1^TX_i\beta)&=\beta^TX_i^TH_1H_1^TX_i\beta\\
+        &=\beta^TX_i^T\underbrace{(I-P_X)}_{0}X_i\beta\\
+        &=0\\
+        => H_1^TX_i\beta&=0\\
+        => E(U)&=0
+    \end{align*}
+    Let Var$(Y)=V=Z_iDZ_i^T+\sigma I$, so we have Var$(U)=H_1^VH_1$.
+    Since $U$ and $b$ are normal distributed, the joint distribution of them is also normal distributed, the covariance of $U$ and $b$ is
+     \begin{equation*}
+     \begin{split}
+        Cov(U,b)&=Cov(H_1^TX_i\beta+H_1^TZ_ib_i+H_1^Te_i,\quad b)\\
+        &=Cov(H_1^TZ_ib_i,\quad b)\\
+        &=H_1^TZ_iVar(b)=H_1^TZ_iD
+     \end{split}
+    \end{equation*}
+    Therefore, the distribution of $(U,b)^T$ is
+    \begin{equation*}
+    \begin{pmatrix}
+    U\\
+    b
+    \end{pmatrix}
+    \sim MN\Big( \mu=\begin{pmatrix}
+    0\\
+    0
+    \end{pmatrix}
+    ,\Sigma=\begin{pmatrix}
+    H_1^TVH_1&H_1^TZ_iD\\
+    DZ_i^TH_1&D
+    \end{pmatrix}
+    \Big)
+    \end{equation*}    
+    therefore, we have
+    \begin{equation}
+    \begin{split}
+        E(b|U)&=0+(DZ_i^TH_1)(H_1^TVH_1)^{-1}(H_1Y_i)\\
+        &=DZ_i^T\underbrace{H_1H_1^TVH_1)^{-1}H_1}_{P}Y_i\\
+        &=DZ_i^TPY_i
+    \end{split}
+    \end{equation}
+    and
+    \begin{equation}
+    \begin{split}
+        Var(b|U)&=D-DZ_i^T\underbrace{H_1H_1^TVH_1)^{-1}H_1}_{P}Z_iD\\
+        &=D-DZ_i^TPZ_iD
+    \end{split}
+    \end{equation}
+    In the same way, we have the conditional expectation and covariance for $e_i$,
+    \begin{align}
+        E(e_i|U)=\sigma PY_i\\
+        Var(e|U)=\sigma I-\sigma^2P
+    \end{align}
+    Question: how to get the REML estimation of $\hat{D}$ in terms of $b$? We have the REML log-likelihood function:
+    \begin{equation*}
+        L_{REML}=-\frac{1}{2}(ln|V|+ln|X^TV^{-1}X|+Y^TPY)
+    \end{equation*}
+    To get the estimation, we should set
+    \begin{equation*}
+        \dfrac{\partial log L_{REML}}{\partial \hat{D}}=0\\
+    \end{equation*}
+    but how is the above equation related to $b$?\\
+    According to the paper "Random-Effect Model for Longitudinal Data" by Nan M. Laird(1982), we can use the sufficient estimator $\mathbf{t_1}$ to estimate $\hat{D}$
+    \begin{equation}
+        \hat{D}=\frac{\sum_1^nb_ib_i^T}{n}=\frac{\mathbf{t_1}}{n}
+    \end{equation} 
+    where
+    \begin{equation}
+    \begin{split}
+        \hat{\mathbf{t_1}}&=E(\sum_1^nb_ib_i^T|y,D,\sigma)\\
+        &=\sum_1^n[E(b_i|y,D,\sigma)E(b_i|y,D,\sigma^T]+var(b|y,D,\sigma)
+    \end{split}
+    \end{equation}
+    In the same, we can use the sufficient estimator $\mathbf{t_2}$ to estimate $\sigma$ by
+    \begin{equation}
+        \hat{\sigma}=\frac{\sum_1^ne_i^Te_i}{n}=\frac{\mathbf{t_2}}{n}
+    \end{equation}
+    where
+    \begin{equation}
+    \begin{split}
+        \hat{\mathbf{t_2}}&=E(\sum_1^ne_ie_i^T|y,D,\sigma)\\
+        &=\sum_1^n[E(e_i|y,D,\sigma)E(e_i|y,D,\sigma^T]+tr(var(e|y,D,\sigma))
+    \end{split}
+    \end{equation}
+    So the EM algorithm can be described as:\\
+    1. Set the initial value for $D$ and $\sigma$.\\
+    2. Compute the conditional expectation and variance of $b_i$ and $e_i$ using (1)-(4).\\
+    3. Compute the sufficient estimator $\mathbf{t_1}$ and $\mathbf{t_2}$ using (6) and (8).\\
+    4. Compute the estimation of $\hat{D}$ and $\hat{\sigma}$.\\
+    5. Repeat step 2-4 until $\hat{D}$ and $\hat{\sigma}$ converge.
+    
+\end{document}

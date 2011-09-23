@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[margin=2cm]{geometry}
+\DeclareGraphicsRule{*}{eps}{*}{}
+\renewcommand{\baselinestretch}{1.5}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+
+    \begin{center}
+        {\bf Talk on 2010-07-01: The EM-REML algorithm(2)}
+    \end{center}
+    Model:
+    \begin{equation*}
+        Y=X\gamma+H\beta+e
+    \end{equation*}
+    where $\beta\sim MN(0,\tau R)$ and $e\sim MN(0,\sigma I)$.\\
+    Let $U=A^TY$ with the condition that$A^TA=I$ and $AA^T=I-P_X$, according to the "Talk on 2010-06-24", we have
+    \begin{equation*}
+    \begin{pmatrix}
+    U\\
+    \beta
+    \end{pmatrix}
+    \sim MN\Big( \mu=\begin{pmatrix}
+    0\\
+    0
+    \end{pmatrix}
+    ,\Sigma=\begin{pmatrix}
+    A^TVA&\tau A^THR\\
+    \tau RH^TA&\tau R
+    \end{pmatrix}
+    \Big)
+    \end{equation*}
+    Therefore, we have the conditional distribution of $U|\beta$ and $\beta|U$ which is 
+    \begin{equation*}
+    U|\beta\sim MN(A^TH\beta,\sigma(I-P_X))
+    \end{equation*}
+    \begin{equation*}
+    \beta|U\sim MN(\tau RH^TP_XY,\tau R-\tau^2 RH^TP_XHR))
+    \end{equation*}
+    Define $\theta=\{\sigma, \tau\}$, according to the EM algorithm, we need to first compute the expectation of $\log\quad L(\theta^{(t)}|U,\beta)$ given $U$ and $\theta^{(t-1)}$,
+    \begin{equation*}
+    \begin{split}
+    \log L(\theta^{(t)}|U,\beta)&=\log f(U,\beta|\theta^{(t)})=\log\{f(U|\beta,\theta^{(t)})f(\beta|\theta^{(t)})\}\\
+    &=\log\underbrace{f(U|\beta,\theta^{(t)})}_{\textrm{independent from }\tau}-\frac{1}{2}\log(|\tau R|)-\frac{1}{2\tau}\beta^TR^{-1}\beta
+    \end{split}
+    \end{equation*}
+    so when we take the expectation of $\log L(\theta^{(t)}|U,\beta)$ under $\beta|U,\theta^{(t-1)}$, we have
+    \begin{equation}
+        E_{\beta|U,\theta^{(t-1)}}(\log L(\theta^{(t)}|U,\beta))=\log f(U|\beta,\theta^{(t)})-\frac{1}{2} q\log\tau-\frac{1}{2}\log|R|-\frac{1}{2\tau}E_{\beta|U,\theta^{(t-1)}}(\beta^TR^{-1}\beta)
+    \end{equation}
+     Since the $E(\varepsilon^T\Lambda\varepsilon)=E(\varepsilon)^T\Lambda E(\varepsilon)+tr(\Lambda Var(\varepsilon))$, (1) can be simplified as 
+    \begin{equation}
+    \begin{split}
+        E_{\beta|U,\theta^{(t-1)}}(\log L(\theta^{(t)}|U,\beta))=&\log f(U|\beta,\theta^{(t)})-\frac{1}{2} q\log\tau-\frac{1}{2}\log|R|\\
+        &-\frac{1}{2\tau}\Big[E(\beta|U,\theta^{(t-1)})^TR^{-1} E(\beta|U,\theta^{(t-1)})+tr(R^{-1} Var(\beta|U,\theta^{(t-1)}))\Big]
+    \end{split}
+    \end{equation}   
+    To maximize (2), we let
+    \begin{equation*}
+    \frac{\partial E_{\beta|U,\theta^{(t-1)}}(\log L(\theta^{(t)}|U,\beta))}{\partial \tau}=0
+    \end{equation*}  
+    It is easily to derive that 
+    \begin{equation}
+        \tau^{(t)}=\frac{1}{q}\Big[E(\beta|U,\theta^{(t-1)})^TR^{-1} E(\beta|U,\theta^{(t-1)})+tr(R^{-1} Var(\beta|U,\theta^{(t-1)}))\Big]
+    \end{equation}
+    We can also get the estimation of $\sigma$ by
+    \begin{equation}
+        \sigma^{(t)}=\frac{1}{q}\Big[E(\sigma|U,\theta^{(t-1)})^TE(\sigma|U,\theta^{(t-1)})+tr( Var(\sigma|U,\theta^{(t-1)}))\Big]
+    \end{equation}    
+\end{document}

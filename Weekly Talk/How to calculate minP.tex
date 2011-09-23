@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{booktabs}
+\renewcommand{\baselinestretch}{1.1}
+\usepackage{amsthm,amsmath, amssymb, amsfonts, amscd, xspace, pifont, color}
+\usepackage{epsfig, psfrag}
+\usepackage{multirow}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{rotating}
+\usepackage[round]{natbib}
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Lemma}[Theorem]{Lemma}
+
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\GG}{\mathcal{G}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\V}{\mathbf{V}}
+\newcommand{\VV}{\mathbf{V}^{-1}}
+\newcommand{\argmax}{\mathop{\arg\max}}
+\newcommand{\argmin}{\mathop{\arg\min}}
+
+
+\begin{document}
+
+    \begin{center}
+        \Large{How to calculate minP}
+    \end{center}
+
+    \fontsize{11pt}{\baselineskip}\selectfont
+
+    The model for the minP method is:
+    \begin{equation*}
+        Y=X\gamma+SNP_1+SNP_2+SNP_{12}+e
+    \end{equation*}
+    where $SNP_1$ and $SNP_2$ is the main effect of $SNP_1$ and $SNP_2$, respectively. $SNP_{12}$ is the interaction effect between $SNP_1$ and $SNP_2$.
+
+    From the model we can see that the minP method only considers 2 SNPs at a time. When we apply minP method to joint test or interaction test for two genes, say, gene A and gene B, they have $n_1$ and $n_2$ SNPs, respectively. We may find the minP by permutation.
+
+    \section{Joint test}
+
+    For the joint test, the hypothesis is $H_0: SNP_1=SNP_2=SNP_{12}=0$, Since there are in total $k_1\times k_2$ combination for interaction if we just consider the interaction between genes rather than the interaction within genes. We need to point out that given the LD within the gene, the independent SNP number $k_1$ and  $k_2$ is usually smaller than the total number $n_1$ and $n_2$. Then the adjust P value for minP method can be computed from the following table:
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{c|cccc|c}
+            \toprule
+            &test 1 & test 2 & $\cdots$ & test K(K=$n_1\times n_2$) & smallest P value\\
+            \hline
+            real data   &   $p^0_1$ &   $p^0_2$ &   $\cdots$    &   $p^0_K$ &   $p^0$  \\
+            permutation data 1&$p^1_1$&$p^1_2$&$\cdots$&$p^1_K$&$p^1$\\
+            $\vdots$&$\vdots$&$\vdots$&$\ddots$&$\vdots$&$\vdots$\\
+            permutation data R&$p^R_1$&$p^R_2$&$\cdots$&$p^R_K$&$p^R$\\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    where the $p^i=\min{p^i_1,\cdots,p^i_K}$ and the final adjust p value for is
+    \begin{equation*}
+        adj \quad p-value=\dfrac{\#\{p^i<p^0\}}{R}
+    \end{equation*}
+    when we want to calculate the power, R is usually set to 200, but when we want to get the type I error, we usually set R to 1,000.
+
+\end{document} 

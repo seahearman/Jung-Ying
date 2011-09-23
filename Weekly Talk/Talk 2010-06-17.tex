@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage[margin=2cm]{geometry}
+\DeclareGraphicsRule{*}{eps}{*}{}
+\renewcommand{\baselinestretch}{1.5}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+
+    \begin{center}
+        {\bf Talk on 2010-06-17}
+    \end{center}
+    Model:
+    \begin{equation*}
+        Y=X\gamma+H^A\beta^A+H^B\beta^B+G^{AB}\alpha+e
+    \end{equation*}
+    where\[\beta^A\sim MN(0, \tau_A R_A)\]
+    \[\beta^B\sim MN(0, \tau_B R_B)]\]
+    \[\alpha\sim MN(0,\phi R_{AB})\]
+    \[e\sim MN(0,\sigma I)\]\\
+    Q1: Get the formula of REML for $\dfrac{\partial log L_{REML}}{\partial \phi}\arrowvert_{\hat{\tau_A},\hat{\tau_B},\hat{\sigma},\phi=0}$\\
+    A: Let $V=var(y)=\tau_AH^AR_A(H^A)^T+\tau_BH^BR_B(H^B)^T+\phi G^{AB}R^{AB}(G^{AB})^T+\sigma I$\\
+    according to REML (The detailed derivation see appendix):
+    \begin{equation*}
+        L=-\frac{1}{2}(ln|V|+ln|X^TV^{-1}X|+Y^TPY)
+    \end{equation*}
+    where $P=V^{-1}-V^{-1}X(X^TV^{-1}X)^{-1}X^TV^{-1}$ and
+    \begin{equation*}
+        \dfrac{\partial log L_{REML}}{\partial \phi}\arrowvert_{\hat{\tau_A},\hat{\tau_B},\hat{\sigma},\phi=0}=Y^TP\dfrac{\partial V}{\partial \phi}Y-tr(\dfrac{\partial V}{\partial \phi}P)
+    \end{equation*}\\
+    It is easy to find out that $\dfrac{\partial V}{\partial \phi}=G^{AB}R^{AB}(G^{AB})^T$, so if $\tau_A$, $\tau_B$ and $\sigma$ are known, then $P_0=P|_{\phi=0}$ is a constant. Therefore, the score test for $\phi$ is
+    \begin{equation*}
+        T_{\phi}=\frac{1}{2}Y^TP_0G^{AB}R^{AB}(G^{AB})^TY-tr(G^{AB}R^{AB}(G^{AB})^TP)
+    \end{equation*}\\
+    Q2: One way to get $\hat{\tau_A}$, $\hat{\tau_B}$ and $\hat{\sigma}$ is to calculate the joint formulas:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            \dfrac{\partial log L_{REML}}{\partial \tau_A}|_{\phi=0}=0\\
+            \dfrac{\partial log L_{REML}}{\partial \tau_B}|_{\phi=0}=0\\
+            \dfrac{\partial log L_{REML}}{\partial \sigma}|_{\phi=0}=0\\
+        \end{aligned}
+        \right.
+    \end{equation*}
+    can we get the close forms of $\hat{\tau_A}$, $\hat{\tau_B}$ and $\hat{\sigma}$?\\
+    A:Define $S^A=H^AR_A(H^A)^T$ and $S^B=H^BR_B(H^B)^T$, we have
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            &\dfrac{\partial log L_{REML}}{\partial \tau_A}|_{\phi=0}=Y^TP_0S^A-tr(S^AP_0)\\
+            &\dfrac{\partial log L_{REML}}{\partial \tau_B}|_{\phi=0}=Y^TP_0S^B-tr(S^BP_0)\\
+            &\dfrac{\partial log L_{REML}}{\partial \sigma}|_{\phi=0}=Y^TP_0-tr(P_0)\\
+        \end{aligned}
+        \right.
+    \end{equation*}
+    I am still working on how to decompose the $tr(.)$ to get a close form of $\hat{\tau_A}$, $\hat{\tau_B}$ and $\hat{\sigma}$.\\
+    Question: Since the close form seems hard to get, we actually performs a EM instead?
+    Q3: The one Gene model is:
+    \begin{equation*}
+        Y_i=X_i\gamma+H_i\beta+e_i
+    \end{equation*}
+    show that the score test from REML is the same with the score test derived from ML.\\
+    A:
+    \begin{equation*}
+    \begin{split}
+        L(\tau,\sigma)&=\prod f(Y_i|\tau,\sigma)\\
+        &=\prod\int f(Y_i,\hat{\gamma}|\tau,\sigma)d\beta\\
+        &=\prod\int f_y(Y_i|\beta,\tau,\sigma)f_{\beta}(\beta|\tau)d\beta\\
+    \end{split}
+    \end{equation*}
+
+    \begin{center}
+        {\bf APPENDIX}
+    \end{center}
+    One of the annoying things about the ML is its estimation of variance does not take into account the loss in df for estimating the fixed effects. For example, if $y_i\sim N(\mu,\sigma^2)$, the estimator of $\sigma^2$ from ML is $\frac{\sum_1^n(y_i-\hat{\mu})^2}{n}$ which is biased, the unbiased estimator should be $\frac{\sum_1^n(y_i-\hat{\mu})^2}{n-1}$, that is, the MLE did not take the lost 1 degree of freedom which is used to estimate the $\mu$ into account. This is one of the motivations behind REML, which uses statistics that are unaffected by the fixed effects: $\mathbf{(I-P_X)y}$. In other word, let $\hat{e_i}=y_i-\hat{u}$, then we will pick the $n-1$ independent $\hat{e_i}$ (the total $n$ $\hat{e_i}$s are not mutually independent) rather than the total $n$ independent $y_i$ to estimate $\sigma^2$. By doing so, the REML estimator would be unbiased. We find a $n\times (n-p)$matrix $\mathbf{A}$ with condition $\mathbf{A^TA=I_{n-p}}$ and $\mathbf{AA^T=I-P_X}$ and seek the distribution of $\mathbf{A^Ty\equiv w}$, which $\mathbf{w}\sim N_{n-p}(\mathbf{0,A^TVA})$, which takes the form:
+    \begin{equation*}
+        L_R(\theta)=(2\pi)^{-(n-p)/2}|\mathbf{A^TVA}|^{-1/2}\exp\{-\frac{1}{2}\mathbf{w^T(A^TVA)^{-1}w}\}.
+    \end{equation*}
+    To simplify the form above, we constructing the $n\times p$ matrix $\mathbf{G=V^{-1}X(X^TV^{-1}X)^{-1}}$ and the $n\times n$ matrix $\mathbf{B=[A|G]}$. First the product,
+    \begin{equation*}
+    \textbf{B}^T\textbf{B}=\begin{bmatrix}
+        \textbf{A}^T\\
+        \textbf{G}^T
+        \end{bmatrix}
+        [\mathbf{A}\quad \mathbf{G}]=\begin{bmatrix}
+        \mathbf{A}^T\mathbf{A} \quad \mathbf{A}^T\mathbf{G}\\
+        \mathbf{G}^T\mathbf{A} \quad \mathbf{G}^T\mathbf{G}
+        \end{bmatrix}
+    \end{equation*}
+    then the determinant can be rewritten as
+    \begin{equation*}
+    \begin{split}
+    |\textbf{B}|^2&=|\textbf{B}'\textbf{B}|=|\mathbf{A}'\mathbf{A}|\times|\mathbf{G}'\mathbf{G}-\mathbf{G}'\mathbf{A}(\mathbf{A}'\mathbf{A})^{-1}\mathbf{A}'\mathbf{G}|\\
+    &=|\textbf{I}|\times|\mathbf{G}'\mathbf{G}-\mathbf{G}'(\mathbf{I-P_X})\mathbf{G}|=|\mathbf{G}'P_\mathbf{X}\mathbf{G}|\\
+    &=|(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}|=|(\mathbf{X}'\mathbf{X})^{-1}|.
+    \end{split}
+    \end{equation*}
+    which also says that \textbf{B} is nonsingular. Now following the similar steps, we find
+    \begin{equation*}
+    \textbf{B}'\mathbf{V}\textbf{B}=\begin{bmatrix}
+        \mathbf{A}^T\\
+        \mathbf{G}^T
+        \end{bmatrix}
+        \mathbf{V}[\mathbf{A} \quad \mathbf{G}]= \begin{bmatrix}
+        \mathbf{A}^T\mathbf{V}\mathbf{A} & \mathbf{A}^T\mathbf{V}\mathbf{G}\\
+        \mathbf{G}^T\mathbf{V}\mathbf{A}& \mathbf{G}^T\mathbf{V}\mathbf{G}
+        \end{bmatrix}= \begin{bmatrix}
+        \mathbf{A}^T\mathbf{V}\mathbf{A} & \textbf{0}\\
+        \textbf{0} & (\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}
+        \end{bmatrix}
+    \end{equation*}
+    which yields only $|\textbf{B}'\mathbf{V}\textbf{B}|=|\mathbf{A}'\mathbf{V}\mathbf{A}|/|\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}|$. Some more manipulation puts all of the determinant result together:
+    \begin{equation*}
+    \begin{split}
+    |\mathbf{A}'\mathbf{V}\mathbf{A}|&=|\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}|\times |\textbf{B}'\mathbf{V}\textbf{B}|=|\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}|\times |\textbf{B}|^2\\
+    &=|\mathbf{X}'\mathbf{V}^{-1}\mathbf{X}|\times|\mathbf{V}|/|\mathbf{X}'\mathbf{X}|
+    \end{split}
+    \end{equation*}
+    For the quadratic form, the key is constructing the GLS estimator $\tilde{b}=\mathbf{G}'y=(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}\mathbf{X}'\mathbf{V}^{-1}y$. Since \textbf{B} is nonsingular, we have
+    \begin{equation*}
+    \begin{split}
+        \textbf{y}'\mathbf{V}^{-1}\textbf{y}&=\textbf{y}'\textbf{B}(\textbf{B}'\mathbf{V}\textbf{B})^{-1}\textbf{B}'\textbf{y}=[w' \quad \tilde{b}']\begin{bmatrix}
+        \mathbf{A}'\mathbf{V}\mathbf{A} & 0\\
+        0&(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}
+        \end{bmatrix}\begin{bmatrix}
+        w\\
+        \tilde{b}
+        \end{bmatrix}\\
+        &=w'(\mathbf{A}'\mathbf{V}\mathbf{A})^{-1}w+\tilde{b}'(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})\tilde{b}
+    \end{split}
+    \end{equation*}
+    so the quadratic form of interest can be rewritten as
+    \begin{equation*}
+    \begin{split}
+        w'(\mathbf{A}'\mathbf{V}\mathbf{A})^{-1}w&=y'\mathbf{V}^{-1}y-\tilde{b}'(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})\tilde{b}\\
+        &=y^TPy
+    \end{split}
+    \end{equation*}
+    where $P=\mathbf{V}^{-1}-\mathbf{V}^{-1}\mathbf{X}(\mathbf{X}^T\mathbf{V}^{-1}\mathbf{X})^{-1}\mathbf{X}^T\mathbf{V}^{-1}$
+\end{document}
