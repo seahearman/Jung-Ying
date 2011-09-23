@@ -1,4 +1,4 @@
-# Xin Wang, bioinformatics, NCSU, Aug, 2011
+# Xin Wang, bioinformatics, NCSU, Aug, 2011 I use this to have a try
 
 library(stats)
 library(MASS)
