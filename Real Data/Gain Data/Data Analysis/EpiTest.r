@@ -43,10 +43,10 @@ EpiTest = function(Y,X,geno1,geno2){
     VA        =Tau_A*S1+Tau_B*S2-(Tau_A*S1+Tau_B*S2) %*% P %*% (Tau_A*S1+Tau_B*S2)
     sigma_new = as.numeric(1/(N-p) * (t(Y_star) %*% IP_X %*% Y_star + sum(diag(IP_X%*%VA))))
     
-		diff_A = abs((Tau_A_new-Tau_A)/Tau_A_new)		# use the relative difference rather than the absoult difference
-		diff_B = abs((Tau_B_new-Tau_B)/Tau_B_new)
-		diff_s = abs((sigma_new-sigma)/sigma_new)
-		if ((diff_A<0.0001) & (diff_B<0.0001) & (diff_s<0.0001)) break
+		diff_A = abs((Tau_A_new-Tau_A)/1)		# use the relative difference rather than the absoult difference
+		diff_B = abs((Tau_B_new-Tau_B)/1)
+		diff_s = abs((sigma_new-sigma)/1)
+		if ((diff_A<0.00001) & (diff_B<0.00001) & (diff_s<0.00001)) break
 	}
 
   P0 					  = P 
