@@ -19,11 +19,17 @@ OneGeneTest = function(Y,X,geno1,geno2){
 	sigma_new = 1
 
 	#------------------------------- updata --------------------------------------
-
-	repeat{		
+  round = 0
+	repeat{
+    #--- Display the round ------
+    round     = round+1
+    cat("Round ", round, "Tau_A=",Tau_A_new, " sigma=",sigma_new,"\n")
+    
+    
 		Tau_A		  = Tau_A_new
 		sigma 	  = sigma_new
 		
+    
     V0        = Tau_A * S1 + sigma * diag(N)
     inv_V0    = solve(V0)
 		inv_V0X 	= inv_V0%*%X                   #    To speed up the computation
