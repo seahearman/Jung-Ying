@@ -12,9 +12,9 @@ TypicalIBS <- function (geno){
 	S_temp  <- hA %*% t(hA) + ha %*% t(ha)
 	S         <-  S_temp/(4*N_gene)
   
-	for (i in 1:nrow(S)){
-    S[i,i]=1
-	}
+# 	for (i in 1:nrow(S)){
+#     S[i,i]=1
+# 	}
   
   eg        <-  eigen(S, symmetric=T)
   evalue  <-  eg$values
