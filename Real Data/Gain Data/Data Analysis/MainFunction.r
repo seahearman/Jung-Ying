@@ -34,20 +34,30 @@ NoGene 	  <-  length(AllGenes)
 
 cat("",file="D:\\Projects\\Jung-Ying\\Real Data\\Gain Data\\result.txt")
 
-for (i in 1: (NoGene-1)){
+for (i in 2: (NoGene-1)){
 	for (j in (i+1):NoGene){
 	
 		gene1 		<- as.matrix(read.table(AllGenes[i]))
 		gene2 		<- as.matrix(read.table(AllGenes[j]))
     
-		Jointp 	  <- JointTest(Y,X,gene1,gene2)
-    Epip      <- EpiTest(Y,X,gene1,gene2)
-    Gene1p    <- OneGeneTest(Y,X,geno2,geno1)
-    Gene2p    <- OneGeneTest(Y,X,geno1,geno2)
-		
-    Combi 		<- paste(AllGenes[i],AllGenes[j])
+    Combi   	<- paste(AllGenes[i],AllGenes[j])
 		Combi		  <- gsub(".txt", " ",Combi)
     Combi  	  <- gsub(".TXT", " ",Combi)
+    cat(Combi,"\n")
+    
+		Jointp 	  <- JointTest(Y,X,gene1,gene2)
+    
+    if (Jointp<0.1){
+        Epip  <- EpiTest(Y,X,gene1,gene2)  
+    }
+    else{
+        Epip  <- NA  
+    }
+
+    Gene1p    <- OneGeneTest(Y,X,gene2,gene1)
+    Gene2p    <- OneGeneTest(Y,X,gene1,gene2)
+		
+    
 		cat(Combi,Jointp,Epip,Gene1p,Gene2p,"\n",file="D:\\Projects\\Jung-Ying\\Real Data\\Gain Data\\result.txt",append=TRUE)
 	}
 }
