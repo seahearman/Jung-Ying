@@ -108,15 +108,15 @@
         where $\lambda_i$ is the  ordered nonezero eigenvalues of matrix $\V^{-\frac{1}{2}}PS^{AB}P\V^{-\frac{1}{2}}$.
 
         \subsection{One Gene Test adjust with the other Gene}
-        
+
         If we just want to test the main effect of one gene, the simplest way is to apply a model which only considers one gene. However, since the collinear problem, such model may be not suitable to a GWA study. Here we propose another method that may have more power than the usual one Gene model test. Since we just want to test the main effect, here we ignore the interaction part in our model:
-        
+
         \[
             E(Z_{ij})=\tau_AS_{A,ij}+\tau_BS_{B,ij}
         \]
-        
+
         Here to test the main effect of Gene adjusted with Gene B, the corresponding hypothesis is $H_0^1$: $\tau_A=0$ (vice versa for the Gene B main effect test). Similar to previous two test, the following score test can be applied:
-        
+
         \[
             T_{OneGene}=\frac{1}{2}\Y'P_BS^{A}P_B\Y
         \]
@@ -125,9 +125,16 @@
             T_{OneGene}=\frac{1}{2}\Y'P_BS^{A}P_B\Y\sim\sum_{i=1}^c\lambda_i\chi^2_1
         \]
         where $\lambda_i$ is the  ordered nonezero eigenvalues of matrix $\V_B^{-\frac{1}{2}}P_BS^{A}P_B\V_B^{-\frac{1}{2}}$.
-        
-    \section{Simulation study}
 
+    \section{Simulation study}
+    
+        We studied the performance of our method using simulated data. To simulate a realistic LD pattern among the markers, we used real genotype data on Gene RBJ and Gene GPRC5B, two candidate for BMI. Figure 1 shows the LD pattern of the two genes. 
+        
+        Table 1 is a brief summary of the two genes. For gene RBJ, it has 8 SNPs, the left table shows the SNPs feature in RBJ. The right table shows the information for SNP in Gene GPRC5B which has 15 SNPs. For each SNP, two measurements are listed. One is the LD pattern, which shows the average correlation between one SNP and other SNPs in the same gene. The other measurement is minor allele freq (MAF). The reason that we focus on LD and MAF is that we think these two would be the main factors affecting the final result. conditions. To convince our result analysis, I transform the original quantitative LD and MAF data into binary data: SNP is defined to have high LD with other SNPs if its average LD > 0.18 and a common SNP is defined as a SNP whose MAF > 0.2. 
+        
+        In the simulation studies, we try different models to test the performance of our method and other methods. Following is how we generate the simulated data. First we download the genotype of RBJ and GPRC5B from HapMap(http://hapmap.ncbi.nlm.nih.gov/) as a gene bank. Then we simulated the genotype person by person. For the $ith$ individual, we random picked one person's genotype in the gene bank as the $ith$ individual's genotype. After that, we picked one or two SNPs(depends on the model) to generate the phenotype according to different models(Table).
+        
+        Here are the results from our simulation study. First is the model 1, it is a typical interaction model. And the interaction only occurs between genes. For each Gene, I will pick 2 SNPs as the casual SNPs, and assign a interaction effect to the product of two casual SNPs from different genes, then I add the two interaction effect to generate the phenotype. In the figure, the x axis is the method, we compare our method with widely used PCA and PLS, the y axis is the power, the higher, the better. From the result, we can see that in most cases, our method is better than PCA and PLS. And the bigger the minor allele freq. that is more common SNP show up, the larger the power, and the higher LD, the larger the power is.But when the casual SNP is in Low LD, and the minor allele freq is quite small, our method does not perform as good as the other two methods.We also simulate some other models like additive model and within gene interaction model, both the results show that our method has a better ability to detect the interaction, i.e., has more power. And also, just like the conclusion from additive model, when the casual SNP is in Low LD and the minor allele freq is low, our method did not perform well.
 
 
     \section{Appendix}
