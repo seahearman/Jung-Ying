@@ -2,7 +2,7 @@
 \usepackage{booktabs}
 \renewcommand{\baselinestretch}{1.1}
 \usepackage{amsthm,amsmath, amssymb, amsfonts, amscd, xspace, pifont, color}
-\usepackage{epsfig, psfrag}
+\usepackage{epsfig, psfrag,subfig}
 \usepackage{multirow}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{rotating}
@@ -127,14 +127,109 @@
         where $\lambda_i$ is the  ordered nonezero eigenvalues of matrix $\V_B^{-\frac{1}{2}}P_BS^{A}P_B\V_B^{-\frac{1}{2}}$.
 
     \section{Simulation study}
-    
-        We studied the performance of our method using simulated data. To simulate a realistic LD pattern among the markers, we used real genotype data on Gene RBJ and Gene GPRC5B, two candidate for BMI. Figure 1 shows the LD pattern of the two genes. 
+
+        We studied the performance of our method using simulated data. To simulate a realistic LD pattern among the markers, we used real genotype data on Gene RBJ and Gene GPRC5B, two candidate for BMI. Figure 1 shows the LD pattern of the two genes.
+
+        \begin{figure}[htbp]
+            \centering
+            \subfloat[Gene RBJ]{
+                \centering
+                \includegraphics[height=170pt]{RBJ.jpg}
+
+            }
+            \hspace{10pt}
+            \subfloat[Gene GPRC5B]{
+                \centering
+                \includegraphics[height=170pt]{GPRC5B.jpg}
+            }
+            \caption{LD patten of the two genes}
+        \end{figure}
+
+        \begin{table}[htbp]
+            \centering
+            \caption{LD and MAF information for Gene RBJ and GPRC5B}
+            \subfloat[Gene RBJ]{
+                \begin{minipage}[b]{0.4 \textwidth}
+                    \begin{tabular}{c|cc}
+                        \toprule
+                        SNP	&	LD			&	MAF			\\
+                        \midrule
+                        1	&	0.588	(	H	)&	0.115	(	R	)\\
+                        2	&	0.159	(	L	)&	0.062	(	R	)\\
+                        3	&	0.126	(	L	)&	0.482	(	C	)\\
+                        4	&	0.588	(	H	)&	0.115	(	R	)\\
+                        5	&	0.588	(	H	)&	0.115	(	R	)\\
+                        6	&	0.565	(	H	)&	0.119	(	R	)\\
+                        7	&	0.159	(	L	)&	0.062	(	R	)\\
+                        8	&	0.588	(	H	)&	0.115	(	R	)\\
+                        \bottomrule
+                    \end{tabular}
+                \end{minipage}
+            }
+            \hspace{10pt}
+            \subfloat[Gene GPRC5B]{
+                \begin{minipage}[b]{0.4 \textwidth}
+                    \begin{tabular}{c|cc}
+                        \toprule
+                        SNP	&	LD			&	MAF			\\
+                        \midrule
+                        1	&	0.186	(	H	)&	0.146	(	R	)\\
+                        2	&	0.05	(	L	)&	0.066	(	R	)\\
+                        3	&	0.065	(	L	)&	0.044	(	R	)\\
+                        4	&	0.194	(	H	)&	0.195	(	R	)\\
+                        5	&	0.197	(	H	)&	0.143	(	R	)\\
+                        6	&	0.136	(	L	)&	0.159	(	R	)\\
+                        7	&	0.259	(	H	)&	0.46	(	C	)\\
+                        8	&	0.262	(	H	)&	0.336	(	C	)\\
+                        9	&	0.23	(	H	)&	0.482	(	C	)\\
+                        10	&	0.206	(	H	)&	0.371	(	C	)\\
+                        11	&	0.285	(	H	)&	0.394	(	C	)\\
+                        12	&	0.285	(	H	)&	0.394	(	C	)\\
+                        13	&	0.138	(	L	)&	0.155	(	R	)\\
+                        14	&	0	(	L	)&	0.004	(	R	)\\
+                        15	&	0	(	L	)&	0.005	(	R	)\\
+                        \bottomrule
+                    \end{tabular}
+                \end{minipage}
+            }
+        \end{table}
         
-        Table 1 is a brief summary of the two genes. For gene RBJ, it has 8 SNPs, the left table shows the SNPs feature in RBJ. The right table shows the information for SNP in Gene GPRC5B which has 15 SNPs. For each SNP, two measurements are listed. One is the LD pattern, which shows the average correlation between one SNP and other SNPs in the same gene. The other measurement is minor allele freq (MAF). The reason that we focus on LD and MAF is that we think these two would be the main factors affecting the final result. conditions. To convince our result analysis, I transform the original quantitative LD and MAF data into binary data: SNP is defined to have high LD with other SNPs if its average LD > 0.18 and a common SNP is defined as a SNP whose MAF > 0.2. 
-        
-        In the simulation studies, we try different models to test the performance of our method and other methods. Following is how we generate the simulated data. First we download the genotype of RBJ and GPRC5B from HapMap(http://hapmap.ncbi.nlm.nih.gov/) as a gene bank. Then we simulated the genotype person by person. For the $ith$ individual, we random picked one person's genotype in the gene bank as the $ith$ individual's genotype. After that, we picked one or two SNPs(depends on the model) to generate the phenotype according to different models(Table).
-        
+        Table 1 is a brief summary of the two genes. For gene RBJ, it has 8 SNPs, the left table shows the SNPs feature in RBJ. The right table shows the information for SNP in Gene GPRC5B which has 15 SNPs. For each SNP, two measurements are listed. One is the LD pattern, which shows the average correlation between one SNP and other SNPs in the same gene. The other measurement is minor allele freq (MAF). The reason that we focus on LD and MAF is that we think these two would be the main factors affecting the final result. conditions. To convince our result analysis, I transform the original quantitative LD and MAF data into binary data: SNP is defined to have high LD (H) with other SNPs if its average LD $>$ 0.18, otherwise it has a low LD (L). A SNP labeled with C mean it is a common SNP which has MAF $>0.2$ and R means it has a MAF $\leq 0.2$.
+
+        \begin{table}[htbp]
+            \centering
+            \caption{Simulation models}
+            \begin{tabular}{c|l}
+                \toprule
+                Model 1 & $Y =\beta\times (SNP^A_1\times SNP^B_1+SNP^A_2\times SNP^B_2)+e$  \\
+                Model 2 & $Y =\beta\times (SNP^A_1+SNP^B_1)+e$\\
+                Model 3 & $Y =\beta\times (SNP^A_1\times SNP^A_2+SNP^B_1\times SNP^B_2)+e$\\
+                \bottomrule
+            \end{tabular}            
+        \end{table}
+
+        In the simulation studies, we try different models to test the performance of our method and other methods. Following is how we generate the simulated data. First we download the genotype of RBJ and GPRC5B from HapMap(http://hapmap.ncbi.nlm.nih.gov/) as a gene bank. Then we simulated the genotype person by person. For the $ith$ individual, we random picked one person's genotype in the gene bank as the $ith$ individual's genotype. After that, we picked one or two SNPs(depends on the model) to generate the phenotype according to different models(shown in Table 2). Here, $SNP^i_j$ stands for the $jth$ SNP from Gene $i$, $e$ is an error term follows normal distribution with mean 0 and variance 1. $\beta$ is a scale parameter which control the power. We tune $\beta$ so that the power of different SNP sets are distinguishable. 
+
         Here are the results from our simulation study. First is the model 1, it is a typical interaction model. And the interaction only occurs between genes. For each Gene, I will pick 2 SNPs as the casual SNPs, and assign a interaction effect to the product of two casual SNPs from different genes, then I add the two interaction effect to generate the phenotype. In the figure, the x axis is the method, we compare our method with widely used PCA and PLS, the y axis is the power, the higher, the better. From the result, we can see that in most cases, our method is better than PCA and PLS. And the bigger the minor allele freq. that is more common SNP show up, the larger the power, and the higher LD, the larger the power is.But when the casual SNP is in Low LD, and the minor allele freq is quite small, our method does not perform as good as the other two methods.We also simulate some other models like additive model and within gene interaction model, both the results show that our method has a better ability to detect the interaction, i.e., has more power. And also, just like the conclusion from additive model, when the casual SNP is in Low LD and the minor allele freq is low, our method did not perform well.
+      
+        \begin{figure}[htbp]
+            \centering
+            \subfloat[model 1]{
+                \centering
+                \includegraphics[height=170pt]{model1.jpg}
+            }
+            \hspace{10pt}
+            \subfloat[model 2]{
+                \centering
+                \includegraphics[height=170pt]{model2.jpg}
+            }
+            \hspace{10pt}
+            \subfloat[model 3]{
+                \centering
+                \includegraphics[height=170pt]{model3.jpg}
+            }
+            \caption{result for models}
+        \end{figure}  
 
 
     \section{Appendix}
@@ -143,7 +238,7 @@
 
             For the model:
             \begin{equation*}
-                Y=X\gamma+G_A+G_B+e
+                Y=X\gamma+G_A+G_B+G_{AB}+e
             \end{equation*}
 
             Define $\theta=\{\sigma,\tau_A,\tau_B,\phi\}$, the REML log-likelihood function $L(\theta)$ for the whole data set is:
@@ -177,7 +272,7 @@
             \]
 
         \subsection{EM algorithm to estimate $\tau_A$, $\tau_B$ and $\sigma$}
-            The model is
+            The model under the null hypothesis os $\phi=0$ is
             \[
                 Y=X\gamma+G_A+G_B+e
             \]
