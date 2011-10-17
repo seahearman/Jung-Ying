@@ -45,7 +45,7 @@
                 0,\quad o.w
          \end{cases} \]
 
-         Other way to describe the genetic similarity using the unphased genotype is so called MaxIBS, here $MS_{ij}^m$ is calculated by
+         Another way to describe the genetic similarity using the unphased genotype is so called MaxIBS, here the similarity matrix $MS_{ij}^m$ is calculated by
          \[ MS_{ij}^m=\begin{cases}
                 1,\quad |G_{m,i}-G_{m,j}|=0,\quad \\
                 0.5,\quad |G_{m,i}-G_{m,j}|=1,\quad \\
@@ -60,7 +60,7 @@
          \end{equation*}
          where we assume $\mu_i=E(Y_i|X_i,H_i)=X_i\gamma$ is the conditional mean of trait with no haplotype effect and $\gamma$ is the effect of the covariant.
 
-         Since we need to consider the Gene interaction, 2 Genes, say, Gene A and Gene B are included. Define $S^{AB}_{ij}=S^A_{ij}*S^B_{ij}$, the Gene-Trait similarity model considering the interaction is
+         Since we need to consider the Gene interaction, 2 Genes, say, Gene A and Gene B are included. Define $S_{AB,ij}=S_{A,ij}\times S_{B,ij}$, the Gene-Trait similarity model considering the interaction is
          \begin{equation*}
             E(Z_{ij})=\tau_AS_{A,ij}+\tau_BS_{B,ij}+\phi S_{AB,ij}
          \end{equation*}
@@ -73,7 +73,7 @@
         \end{equation*}
         where
         \[G_A   \sim   MN(0, \tau_AS_A)\]
-        \[G_B   \sim   MN(0, \tau_BS_B)]\]
+        \[G_B   \sim   MN(0, \tau_BS_B)\]
         \[G_{AB}\sim   MN(0, \phi S_{AB})\]
         \[e     \sim   MN(0,\sigma I)\]\\
 
@@ -115,7 +115,7 @@
             E(Z_{ij})=\tau_AS_{A,ij}+\tau_BS_{B,ij}
         \]
 
-        Here to test the main effect of Gene adjusted with Gene B, the corresponding hypothesis is $H_0^1$: $\tau_A=0$ (vice versa for the Gene B main effect test). Similar to previous two test, the following score test can be applied:
+        Here to test the main effect of Gene adjusted with Gene B, the corresponding hypothesis is $H_0^1$: $\tau_A=0$ (vice versa for the Gene B main effect test). Similar to previous two tests, the following score test can be applied:
 
         \[
             T_{OneGene}=\frac{1}{2}\Y'P_BS^{A}P_B\Y
@@ -193,8 +193,8 @@
                 \end{minipage}
             }
         \end{table}
-        
-        Table 1 is a brief summary of the two genes. For gene RBJ, it has 8 SNPs, the left table shows the SNPs feature in RBJ. The right table shows the information for SNP in Gene GPRC5B which has 15 SNPs. For each SNP, two measurements are listed. One is the LD pattern, which shows the average correlation between one SNP and other SNPs in the same gene. The other measurement is minor allele freq (MAF). The reason that we focus on LD and MAF is that we think these two would be the main factors affecting the final result. conditions. To convince our result analysis, I transform the original quantitative LD and MAF data into binary data: SNP is defined to have high LD (H) with other SNPs if its average LD $>$ 0.18, otherwise it has a low LD (L). A SNP labeled with C mean it is a common SNP which has MAF $>0.2$ and R means it has a MAF $\leq 0.2$.
+
+        Table 1 is a brief summary of the two genes. For gene RBJ, it has 8 SNPs, the left table shows the SNPs feature in RBJ. The right table shows the information for SNP in Gene GPRC5B which has 15 SNPs. For each SNP, two measurements are listed. One is the LD pattern, which shows the average correlation between one SNP and other SNPs in the same gene. The other measurement is minor allele freq (MAF). The reason that we focus on LD and MAF is that we think these two would be the main factors affecting the final result. To convince our result analysis, I transform the original quantitative LD and MAF data into binary data: SNP is defined to have high LD (H) with other SNPs if its average LD $>$ 0.18, otherwise its LD is low(L). A SNP labeled with C mean it is a common SNP whose MAF $>0.2$ and R means its MAF $\leq 0.2$.
 
         \begin{table}[htbp]
             \centering
@@ -205,13 +205,13 @@
                 Model 2 & $Y =\beta\times (SNP^A_1+SNP^B_1)+e$\\
                 Model 3 & $Y =\beta\times (SNP^A_1\times SNP^A_2+SNP^B_1\times SNP^B_2)+e$\\
                 \bottomrule
-            \end{tabular}            
+            \end{tabular}
         \end{table}
 
-        In the simulation studies, we try different models to test the performance of our method and other methods. Following is how we generate the simulated data. First we download the genotype of RBJ and GPRC5B from HapMap(http://hapmap.ncbi.nlm.nih.gov/) as a gene bank. Then we simulated the genotype person by person. For the $ith$ individual, we random picked one person's genotype in the gene bank as the $ith$ individual's genotype. After that, we picked one or two SNPs(depends on the model) to generate the phenotype according to different models(shown in Table 2). Here, $SNP^i_j$ stands for the $jth$ SNP from Gene $i$, $e$ is an error term follows normal distribution with mean 0 and variance 1. $\beta$ is a scale parameter which control the power. We tune $\beta$ so that the power of different SNP sets are distinguishable. 
+        In the simulation studies, we try different models to test the performance of our method and other methods. Following is how we generate the simulated data. First we download the genotype of RBJ and GPRC5B from HapMap(http://hapmap.ncbi.nlm.nih.gov/) as a gene bank. Then we simulated the genotype person by person. For the $ith$ individual, we random picked one person's genotype in the gene bank as the $ith$ individual's genotype. After that, we picked one or two SNPs(depends on the model) to generate the phenotype according to different models(shown in Table 2). Here, $SNP^i_j$ stands for the $jth$ causal SNP from Gene $i$, $e$ is an error term following a normal distribution with mean 0 and variance 1. $\beta$ is a scale parameter which controls the power. We tune $\beta$ so that the power of different SNP sets are distinguishable.
 
-        Here are the results from our simulation study. First is the model 1, it is a typical interaction model. And the interaction only occurs between genes. For each Gene, I will pick 2 SNPs as the casual SNPs, and assign a interaction effect to the product of two casual SNPs from different genes, then I add the two interaction effect to generate the phenotype. In the figure, the x axis is the method, we compare our method with widely used PCA and PLS, the y axis is the power, the higher, the better. From the result, we can see that in most cases, our method is better than PCA and PLS. And the bigger the minor allele freq. that is more common SNP show up, the larger the power, and the higher LD, the larger the power is.But when the casual SNP is in Low LD, and the minor allele freq is quite small, our method does not perform as good as the other two methods.We also simulate some other models like additive model and within gene interaction model, both the results show that our method has a better ability to detect the interaction, i.e., has more power. And also, just like the conclusion from additive model, when the casual SNP is in Low LD and the minor allele freq is low, our method did not perform well.
-      
+        Here are the results from our simulation study. First is the model 1, it is a typical interaction model. And the interaction only occurs between genes. For each Gene, I will pick 2 SNPs as the causal SNPs, and assign a interaction effect to the product of two casual SNPs from different genes, then I add the two interaction effect to generate the phenotype. In the figure, the x axis is the method, we compare our method with widely used PCA and PLS, the y axis is the power, the higher, the better. From the result, we can see that in most cases, our method is better than PCA and PLS. And the bigger the minor allele freq. that is more common SNP show up, the larger the power, and the higher LD, the larger the power is. But when the causal SNP is in Low LD, and the minor allele freq is quite small, our method does not perform as good as the other two methods.We also simulate some other models like additive model and within gene interaction model, both the results show that our method has a better ability to detect the interaction, i.e., has more power. And also, just like the conclusion from model 1, when the causal SNP is in Low LD and the minor allele freq is low, our method did not perform well.
+
         \begin{figure}[htbp]
             \centering
             \subfloat[model 1]{
@@ -229,7 +229,7 @@
                 \includegraphics[height=170pt]{model3.jpg}
             }
             \caption{result for models}
-        \end{figure}  
+        \end{figure}
 
 
     \section{Appendix}
