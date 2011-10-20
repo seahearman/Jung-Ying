@@ -17,18 +17,18 @@
     \begin{equation*}
         Y=X\gamma+H\beta+e
     \end{equation*}
-    where 
-    
+    where
+
     $Y:N\times 1$,
-    
+
     $X:N\times p$,
-    
+
     $\gamma:p\times 1$, $\gamma$ is the fixed effect,
-    
+
     $H:N\times q$,
-    
-    $\beta:q\times 1$, $\beta\sim MN(0,\tau R)$, \\    
-    and $e:N\times1$, $e\sim MN(0,\sigma I)$.\\    
+
+    $\beta:q\times 1$, $\beta\sim MN(0,\tau R)$, \\
+    and $e:N\times1$, $e\sim MN(0,\sigma I)$.\\
     Let $U=A^TY$ with the condition that$A^TA=I_{N-p}$ and $AA^T=I-P_X$, we have
     \begin{align*}
         E(U)&=E(A^TY)\\
@@ -51,7 +51,7 @@
         &=A^THVar(\beta)=\tau A^THR
      \end{split}
     \end{equation*}
-    Therefore, the joint distribution of $(U,\beta)^T$ is 
+    Therefore, the joint distribution of $(U,\beta)^T$ is
     \begin{equation*}
     \begin{pmatrix}
     U\\
@@ -75,7 +75,7 @@
         &=A^TVA-A^T(\tau HRH^T)A\\
         &=A^T(V-\tau HRH^T)A\\
         &=A^T\cdot \sigma I\cdot A\\
-        &=\sigma I        
+        &=\sigma I
     \end{align*}
     Therefore, we have the conditional distribution of $U|\beta$ which is
     \begin{equation*}
@@ -110,7 +110,7 @@
     \begin{align*}
         (A^TVG)^T(A^TVG)&=G^TVAA^TVG\\
         &=G^TV\underbrace{(I-P_X)VV^{-1}X}_{0}(X^TV^{-1}X)^{-1}\\
-        =0        
+        =0
     \end{align*}
     which also says that \textbf{B} is nonsingular.
     \begin{align*}
@@ -183,7 +183,7 @@
         \sigma^{(t)}=\frac{1}{q}\Big[E(\sigma|U,\theta^{(t-1)})^TE(\sigma|U,\theta^{(t-1)})+tr( Var(\sigma|U,\theta^{(t-1)}))\Big]
     \end{equation*}
     just like $\tau$.
-    If we still take the expectation on $\beta$, then 
+    If we still take the expectation on $\beta$, then
     \begin{align*}
         E_\beta[\log(L)]=&E_\beta\Big[-\frac{1}{2}(N-p)\log\sigma+1+U^TU-\beta^TH^TAA^TH\beta+\log f(\beta|\theta^{(t)})\Big]\\
         =&E_\beta\Big[-\frac{1}{2}(N-p)\log\sigma+1+Y^T(I-P_X)Y-\beta^TH^T(I-P_X)^TH\beta \Big]+E_\beta\Big[\log f(\beta|\theta^{(t)})\Big]\\
@@ -194,7 +194,7 @@
     \begin{equation}
         \sigma^{(t)}=\frac{1}{N-p}\Big[(Y-H\tilde{\beta})^T(I-P_X)(Y-H\tilde{\beta})+tr(H^T(I-P_X)H Var(\beta|U))         \Big]
     \end{equation}
-    If the model is 
+    If the model is
     \begin{equation*}
         Y=X\gamma+H_A\beta_A+H_B\beta_B+e
     \end{equation*}
@@ -208,13 +208,13 @@
 
     $H_A:N\times q_A$,
 
-    $\beta_A:q_A\times 1$, $\beta\sim MN(0,\tau_A R_A)$, 
+    $\beta_A:q_A\times 1$, $\beta\sim MN(0,\tau_A R_A)$,
 
     $H_B:N\times q_B$,
 
-    $\beta_B:q_B\times 1$, $\beta\sim MN(0,\tau_B R_B)$, \\ 
+    $\beta_B:q_B\times 1$, $\beta\sim MN(0,\tau_B R_B)$, \\
     construct $H=[H_A H_B]$, $\beta=(\beta_A, \beta_B)^T$ and $R=\begin{bmatrix}\tau_A R_A&0\\0&\tau_B R_B \end{bmatrix} $.
-    According to the simple model, we can easily get that 
+    According to the simple model, we can easily get that
     \begin{equation*}
     \begin{pmatrix}
     U\\
@@ -230,14 +230,14 @@
     \end{pmatrix}
     \Big)
     \end{equation*}
-    and 
+    and
     \begin{align*}
         E(U|\beta)&=A^TH\beta\\
-        Var(U|\beta)&=\sigma I_{N-p}\\ 
-        E(\beta|U)&=RH^TP_XY\\
-        Var(\beta|U)&= R-RH^TP_XHR
+        Var(U|\beta)&=\sigma I_{N-p}\\
+        E(\beta|U)&=RH^TPY\\
+        Var(\beta|U)&= R-RH^TPHR
     \end{align*}
-    The likelihood function is 
+    The likelihood function is
     \begin{align*}
         \log L(\theta^{(t)}|U,\beta)=&\log f(U,\beta|\theta^{(t)})\\
         =&\log f(U|\beta,\theta^{(t)})+ \log f(\beta|\theta^{(t)})\\
@@ -246,7 +246,7 @@
         &+\log f(U|\beta,\theta^{(t)})\\
         =&\log f(U|\beta,\theta^{(t)})+ \log f(\beta_A|\theta^{(t)})+ \log f(\beta_B|\theta^{(t)})\\
     \end{align*}
-    so the estimation of $\theta$ is 
+    so the estimation of $\theta$ is
     \begin{align}
     \tau^{(t)}_A=&\frac{1}{q_A}\Big[E(\beta_A|U,\theta^{(t-1)})^TR_A^{-1} E(\beta_A|U,\theta^{(t-1)})+tr(R_A^{-1} Var(\beta_A|U,\theta^{(t-1)}))\Big]\\
     \tau^{(t)}_B=&\frac{1}{q_B}\Big[E(\beta_B|U,\theta^{(t-1)})^TR_B^{-1} E(\beta_B|U,\theta^{(t-1)})+tr(R_B^{-1} Var(\beta_B|U,\theta^{(t-1)}))\Big]\\
