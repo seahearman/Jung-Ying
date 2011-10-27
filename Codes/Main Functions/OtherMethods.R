@@ -6,9 +6,6 @@
 
   N 		<- nrow(phenotype)								# the nmuber of individuals in the sample
 	
-	geno1 	<- genotype[,1:n_gene1]							# the genotype for the 1st gene
-	geno2 	<- genotype[,(n_gene1+1):(n_gene1+n_gene2)]		# the genotype for the 2nd gene
-	
 	#---------- 2.1 get the 1st PCA component of geno1 and geno2)----------------------
 
 	gene1_PCA		 <- princomp(geno1,cor=FALSE, scores=TRUE)
@@ -17,11 +14,12 @@
 	Z1				 <- gene1_PCA$score[,1]
 	Z2				 <- gene2_PCA$score[,1]
 	
-	model_analysis 	 <- glm(phenotype~genotype+Z1*Z2)		# the alternative model
+  dat1  	 <- data.frame(phenotype=phenotype,geno1,geno2,Z1*Z2)
+	model_analysis 	 <- glm(phenotype~.,data = dat1)		# the alternative model
 	
 	ptest1		 	<- anova(model_analysis,test="Chisq")
-	po1 		 	<- 1-pchisq((max(ptest1[[4]])-min(ptest1[[4]])),df=max(ptest1[[3]])-min(ptest1[[3]]))
-	return(po1)
+	power1 		 	<- 1-pchisq((max(ptest1[[4]])-min(ptest1[[4]])),df=max(ptest1[[3]])-min(ptest1[[3]]))
+	return(power1)
 }
  
 #--------------------------------------------------------------------------------------
@@ -55,7 +53,7 @@
 	dat3		 <- data.frame(phenotype=phenotype,geno1,geno2,In)
 	fit3		 <- glm(phenotype~.,data=dat3)
 	ptest1		 <- anova(fit3,test="Chisq")
-	po1 		 <- 1-pchisq((max(ptest1[[4]])-min(ptest1[[4]])),df=max(ptest1[[3]])-min(ptest1[[3]]))
+	power1 		 <- 1-pchisq((max(ptest1[[4]])-min(ptest1[[4]])),df=max(ptest1[[3]])-min(ptest1[[3]]))
 	
-	return(po1)
+	return(power1)
 }
