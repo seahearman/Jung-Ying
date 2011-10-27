@@ -35,17 +35,17 @@ EpiTest = function(Y,X,Simi1,Simi2){
     Tau_A_new = as.numeric(1/q1 * (Tau_A^2 * t(Y) %*% P %*% S1 %*% P %*% Y +  Tau_A*q1 - sum(diag(Tau_A^2 * P %*% S1))))
     Tau_B_new = as.numeric(1/q2 * (Tau_B^2 * t(Y) %*% P %*% S2 %*% P %*% Y +  Tau_B*q2 - sum(diag(Tau_B^2 * P %*% S2))))
     
-    Y_star    = Y - Tau_A_new * S1 %*% P %*% Y - Tau_B_new * S2 %*% P %*% Y
+    Y_star    = Y - Tau_A * S1 %*% P %*% Y - Tau_B * S2 %*% P %*% Y
     
     IP_X      = diag(N)-P_X
     VA        =Tau_A*S1+Tau_B*S2-(Tau_A*S1+Tau_B*S2) %*% P %*% (Tau_A*S1+Tau_B*S2)
     sigma_new = as.numeric(1/(N-p) * (t(Y_star) %*% IP_X %*% Y_star + sum(diag(IP_X%*%VA))))
     
-  	diff_A = abs((Tau_A_new-Tau_A)/Tau_A_new)		# use the relative difference rather than the absoult difference
-		diff_B = abs((Tau_B_new-Tau_B)/Tau_B_new)
-		diff_s = abs((sigma_new-sigma)/sigma_new)
+  	diff_A = abs((Tau_A_new-Tau_A)/Tau_A_new+1e-10)		# use the relative difference rather than the absoult difference
+		diff_B = abs((Tau_B_new-Tau_B)/Tau_B_new+1e-10)
+		diff_s = abs((sigma_new-sigma)/sigma_new+1e-10)
 
-		if ((diff_A<0.001) & (diff_B<0.001) & (diff_s<0.001)) break
+		if ((diff_A<0.0001) & (diff_B<0.0001) & (diff_s<0.0001)) break
 	}
 
   P0 					  = P 
