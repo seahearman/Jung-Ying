@@ -42,12 +42,18 @@ AverageIBS_alleletype = function (geno){
       p1 = 1
       p2 = p1+1
       
+
+      
       while (p2<=M){
-        if ( (geno[i,p1]==geno[i,p2]) && (geno[i,p1]==geno[j,p1]) && (geno[j,p1]==geno[j,p2]))
-          S[i,j] = S[i,j] + 2/M
-        else if ((geno[i,p1]!=geno[j,p1]) && (geno[i,p1]!=geno[j,p2]) && (geno[i,p2]!=geno[j,p1]) && (geno[i,p2]!=geno[j,p2]))
-          S[i,j] = S[i,j]
-        else S[i,j] = S[i,j] + 1/M
+        
+        i1 = geno[i,p1]
+        i2 = geno[i,p2]
+        j1 = geno[j,p1]
+        j2 = geno[j,p2]
+        
+        S[i,j] = ((i1==j1)+(i1==j2)+(i2==j1)+(i2==j2))/4
+        S[j,i] = S[i,j]
+        
         p1 = p2+1
         p2 = p1+1
       }
