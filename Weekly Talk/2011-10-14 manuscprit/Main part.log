@@ -1,0 +1,459 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.16)  17 OCT 2011 10:12
+entering extended mode
+**D:/Projects/Jung-Ying/Weekly*Talk/Written*material*2011-10-14/Main*part.tex
+("D:/Projects/Jung-Ying/Weekly Talk/Written material 2011-10-14/Main part.tex"
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for loaded.
+("C:\Program Files\CTEX\MiKTeX\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\CTEX\MiKTeX\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\CTEX\UserData\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen103
+\lightrulewidth=\dimen104
+\cmidrulewidth=\dimen105
+\belowrulesep=\dimen106
+\belowbottomsep=\dimen107
+\aboverulesep=\dimen108
+\abovetopsep=\dimen109
+\cmidrulesep=\dimen110
+\cmidrulekern=\dimen111
+\defaultaddspace=\dimen112
+\@cmidla=\count87
+\@cmidlb=\count88
+\@aboverulesep=\dimen113
+\@belowrulesep=\dimen114
+\@thisruleclass=\count89
+\@lastruleclass=\count90
+\@thisrulewidth=\dimen115
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\classes\amsthm.sty"
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks14
+\thm@bodyfont=\toks15
+\thm@headfont=\toks16
+\thm@notefont=\toks17
+\thm@headpunct=\toks18
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks19
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks20
+\ex@=\dimen116
+))
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen117
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen118
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks21
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks22
+\eqnshift@=\dimen119
+\alignsep@=\dimen120
+\tagshift@=\dimen121
+\tagwidth@=\dimen122
+\totwidth@=\dimen123
+\lineht@=\dimen124
+\@envbody=\toks23
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+("C:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amscd.sty"
+Package: amscd 1999/11/29 v2.0
+\athelp@=\toks25
+\minaw@=\dimen125
+\bigaw@=\dimen126
+\minCDarrowwidth=\dimen127
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\tools\xspace.sty"
+Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty"
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd"
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd"
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2010/11/26 v0.05c Graphics/color for pdfTeX
+\Gread@gobject=\count103
+))
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\epsfig.sty"
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks26
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen128
+\Gin@req@width=\dimen129
+)
+\epsfxsize=\dimen130
+\epsfysize=\dimen131
+)
+("C:\Program Files\CTEX\UserData\tex\latex\psfrag\psfrag.sty"
+Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
+\pfg@pcount=\count104
+\pfg@scount=\count105
+\pfg@temp=\write3
+)
+("C:\Program Files\CTEX\UserData\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files\CTEX\UserData\tex\latex\caption\caption.sty"
+Package: caption 2011/09/30 v3.2c Customizing captions (AR)
+
+("C:\Program Files\CTEX\UserData\tex\latex\caption\caption3.sty"
+Package: caption3 2011/10/09 v1.4 caption3 kernel (AR)
+\captionmargin=\dimen132
+\captionmargin@=\dimen133
+\captionwidth=\dimen134
+\caption@indent=\dimen135
+\caption@parindent=\dimen136
+\caption@hangindent=\dimen137
+)
+\c@ContinuedFloat=\count106
+)
+\c@KVtest=\count107
+\sf@farskip=\skip49
+\sf@captopadj=\dimen138
+\sf@capskip=\skip50
+\sf@nearskip=\skip51
+\c@subfigure=\count108
+\c@subfigure@save=\count109
+\c@lofdepth=\count110
+\c@subtable=\count111
+\c@subtable@save=\count112
+\c@lotdepth=\count113
+\sf@top=\skip52
+\sf@bottom=\skip53
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\multirow\multirow.sty"
+\bigstrutjot=\dimen139
+)
+("C:\Program Files\CTEX\MiKTeX\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+("C:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count114
+\Gm@cntv=\count115
+\c@Gm@tempcnt=\count116
+\Gm@bindingoffset=\dimen140
+\Gm@wd@mp=\dimen141
+\Gm@odd@mp=\dimen142
+\Gm@even@mp=\dimen143
+\Gm@layoutwidth=\dimen144
+\Gm@layoutheight=\dimen145
+\Gm@layouthoffset=\dimen146
+\Gm@layoutvoffset=\dimen147
+\Gm@dimlist=\toks27
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\CTEX\UserData\tex\latex\rotating\rotating.sty"
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count117
+\rotFPtop=\skip54
+\rotFPbot=\skip55
+\rot@float@box=\box28
+\rot@mess@toks=\toks28
+)
+("C:\Program Files\CTEX\UserData\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip56
+\bibsep=\skip57
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count118
+)
+\c@Theorem=\count119
+
+("D:\Projects\Jung-Ying\Weekly Talk\Written material 2011-10-14\Main part.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+("C:\Program Files\CTEX\UserData\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen148
+\scratchbox=\box29
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen149
+\MPnumerator=\count124
+\everyMPtoPDFconversion=\toks30
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package 1.2 or 1.3 is loaded.
+Package caption Info: rotating package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 39.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 39.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 39.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 39.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+("C:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+
+("C:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+) [1
+Non-PDF special ignored!
+
+{C:/Program Files/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}
+}]
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 83.
+
+[2] <RBJ.jpg, id=20, 257.65826pt x 246.34644pt>
+File: RBJ.jpg Graphic file (type jpg)
+ <use RBJ.jpg>
+<GPRC5B.jpg, id=21, 327.624pt x 243.7908pt>
+File: GPRC5B.jpg Graphic file (type jpg)
+ <use GPRC5B.jpg> [3 <D:/Projects/Jung-Ying/Weekly Talk/Written material 2011-1
+0-14/RBJ.jpg> <D:/Projects/Jung-Ying/Weekly Talk/Written material 2011-10-14/GP
+RC5B.jpg>] [4]
+<model1.jpg, id=30, 701.9826pt x 403.2666pt>
+File: model1.jpg Graphic file (type jpg)
+ <use model1.jpg>
+<model2.jpg, id=31, 618.1494pt x 320.8788pt>
+File: model2.jpg Graphic file (type jpg)
+ <use model2.jpg>
+<model3.jpg, id=32, 698.61pt x 373.395pt>
+File: model3.jpg Graphic file (type jpg)
+ <use model3.jpg> [5] [6 <D:/Projects/Jung-Ying/Weekly Talk/Written material 20
+11-10-14/model1.jpg> <D:/Projects/Jung-Ying/Weekly Talk/Written material 2011-1
+0-14/model2.jpg> <D:/Projects/Jung-Ying/Weekly Talk/Written material 2011-10-14
+/model3.jpg>] [7]
+Overfull \hbox (39.82248pt too wide) in paragraph at lines 336--337
+[]\OT1/cmr/m/n/10.95 Define $\OML/cmm/m/it/10.95  \OT1/cmr/m/n/10.95 = \OMS/cm
+sy/m/n/10.95 f\OML/cmm/m/it/10.95 ; []; []\OMS/cmsy/m/n/10.95 g$\OT1/cmr/m/n
+/10.95 , ac-cord-ing to the EM al-go-rith-m, we need to first com-pute the $[] 
+\OML/cmm/m/it/10.95 L\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/1
+0.95 j\OML/cmm/m/it/10.95 U; G[]; G[]\OT1/cmr/m/n/10.95 )$, 
+ []
+
+
+Overfull \hbox (10.02167pt too wide) detected at line 367
+\OML/cmm/m/it/10.95 E[] [] L[]U; [][] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95
+ E[] [] f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 )[]\OML/
+cmm/m/it/10.95 U; [][] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 E[] [] f\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 
+U; [][] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 E[] [] f\OT1/cmr/m/n/10.95 (\
+OML/cmm/m/it/10.95 U\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 G[]; G[]\OT1/cmr/m
+/n/10.95 )[]\OML/cmm/m/it/10.95 [][]
+ []
+
+[8]
+Overfull \hbox (37.45088pt too wide) detected at line 390
+\OML/cmm/m/it/10.95 [] \OT1/cmr/m/n/10.95 = [][][](\OML/cmm/m/it/10.95 Y[]\OT1
+/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 I \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10
+.95 P[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 Y[][] \OT1/cmr/m/n/10.95 + \OML/
+cmm/m/it/10.95 tr[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I \OMS/cmsy/m/n/10.9
+5   \OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 []S[] \OM
+S/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 []\OT1/cmr/m/n/10.9
+5 )[]\OML/cmm/m/it/10.95 S[]PS[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 []S[
+] \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 []\OT1/cmr/m/n
+/10.95 )[]\OML/cmm/m/it/10.95 S[]PS[][][][]
+ []
+
+[9]
+("D:\Projects\Jung-Ying\Weekly Talk\Written material 2011-10-14\Main part.aux")
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4441 strings out of 495362
+ 62716 string characters out of 3183238
+ 140126 words of memory out of 3000000
+ 7527 multiletter control sequences out of 15000+200000
+ 16277 words of font info for 63 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 44i,19n,46p,1299b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/P
+rogram Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
+Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/C
+TEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/CTEX/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/CTEX/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/CTEX/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/CTEX/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb><C:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr10.pfb><C:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb><C:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program 
+Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/CTE
+X/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/CTEX/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on "Main part.pdf" (9 pages, 504061 bytes).
+PDF statistics:
+ 97 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
