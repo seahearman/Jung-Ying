@@ -13,7 +13,7 @@ for (i in 1:n){
   }
 }
 
-S.average = array(1,dim=c(n.comb,n.comb))
+S.average = array(0,dim=c(n.comb,n.comb))
 
 for (i in 1:n.comb){
   for (j in 1:n.comb){
